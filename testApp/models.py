@@ -11,7 +11,4 @@ class AiClass(models.Model):
 
 
 class AiStudent(models.Model):
-    class_num = models.IntegerField()
     name = models.CharField(max_length=30)
-    phone_num = models.CharField(max_length=30)
-    intro_text = models.TextField()

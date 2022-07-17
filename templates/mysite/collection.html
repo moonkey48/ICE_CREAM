@@ -9,7 +9,7 @@
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
                         <h2 class="fs-4 fw-bold">{{ content.title }}</h2>
                         <p class="mb-0">{{ content.content | truncatewords:20}}</p>
-                        <a href="{% url 'detail' content.id %}" >자세히보기</a>
+                        <a href="{% url 'detail' content.id %}" >detail</a>
                     </div>
                 </div>
             </div>
@@ -17,4 +17,12 @@
     {% else %}
         <p> 아직 추가된 신발이 없습니다.</p>
     {% endif %}
+
+    <form action="{% url 'additem' %}" method="POST">
+        {% csrf_token %}
+        <input name="title" placeholder="title"/>
+        <input name="content" placeholder="content"/>
+        <br/>
+        <button type="submit">Add</button>
+    </form>
 {% endblock %}

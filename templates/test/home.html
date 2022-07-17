@@ -3,18 +3,25 @@
 <h1>학생 이름을 입력해보세요!</h1>
 <form action="{% url 'result'%}" method="POST">
     {% csrf_token %}
-    <h1>어서오세요</h1>
+    <h1>class</h1>
     {% for class in class_object %}
         <h1>{{class.class_num}}반</h1>
         <h1>{{class.teacher}}선생님</h1>
         <h1>{{class.students_num}}명</h1>
         </br>
     {% endfor %}
-
     {% csrf_token %}
     <input name="username" placeholder="이름"/>
-    <br/>
-    <br/>
-    <button type="submit">체크하기</button>
+        <br/>
+        <br/>
+        <button type="submit">체크하기</button>
+    <a href="{% url 'add' %}">신규 등록</a>
+
+    {% csrf_token %}
+    <h1>students</h1>
+    {% for student in student_object %}
+        <h1>{{student.name}}</h1>
+        </br>
+    {% endfor %}
 </form>
 {% endblock %}
