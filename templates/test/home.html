@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>학생 이름을 입력해보세요!</h1>
+<form action="{% url 'result'%}" method="POST">
+    {% csrf_token %}
+    <h1>어서오세요</h1>
+    {% for class in class_object %}
+        <h1>{{class.class_num}}반</h1>
+        <h1>{{class.teacher}}선생님</h1>
+        <h1>{{class.students_num}}명</h1>
+        </br>
+    {% endfor %}
+
+    {% csrf_token %}
+    <input name="username" placeholder="이름"/>
+    <br/>
+    <br/>
+    <button type="submit">체크하기</button>
+</form>
+{% endblock %}
